@@ -61,6 +61,7 @@ export class HomeComponent implements OnInit {
     let dateSet = [];
     let timeSet = [];
     let tempSet = [];
+    let humidSet = [];
 
 
     for (let i = 0; i < data.length; i++) {
@@ -79,10 +80,12 @@ export class HomeComponent implements OnInit {
       dateSet.push(tempDate);
       timeSet.push(tempTime);
       tempSet.push(parseFloat(data[i].temp).toFixed(2));
+      humidSet.push(parseFloat(data[i].humid).toFixed(2));
     }
 
     console.log(dateSet)
     console.log(timeSet)
+    console.log(humidSet)
 
 
     // Chart Value
@@ -91,13 +94,22 @@ export class HomeComponent implements OnInit {
       type: 'line',
       data: {
         labels: timeSet,
-        datasets: [{
+        datasets: [
+          {
           label: 'Temperature',
           data: tempSet,
           backgroundColor: 'rgba(54, 162, 235, 0.2)',
           borderColor: 'rgba(54, 162, 235, 1)',
           borderWidth: 1
-        }]
+        },
+        {
+          label: 'Humid',
+          data: humidSet,
+          backgroundColor: 'rgba(255,0,0,0.2)',
+          borderColor: 'rgba(255,0,0,1)',
+          borderWidth: 1
+        }
+      ]
       },
       options: {
         scales: {
