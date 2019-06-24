@@ -1,0 +1,8 @@
+
+{
+    "/api": {
+      "target": "https://cloud-data.herokuapp.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+}
